@@ -17,4 +17,7 @@
     IBOutlet UILabel *resultValueLabel ;
     IBOutlet UILabel *resultTextLabel ;
 }
+
+- (int)outputUsersData :(float)height :(float)weight ;
+
 @end

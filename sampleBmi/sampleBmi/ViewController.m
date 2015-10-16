@@ -79,7 +79,51 @@
     bmiTextLabel.hidden = NO ;
     resultValueLabel.hidden = NO ;
     resultTextLabel.hidden = NO ;
+    
+    [self outputUsersData :heightCentimeter :weight :bmiValue] ;
+    return ;
+}
 
+/* 入力されたデータを Mac 内に保存 */
+- (int)outputUsersData :(float)heightCentimeter :(float)weight :(float)bmiValue
+{
+    NSMutableString *writingPath = [[NSMutableString alloc] initWithString:@"" ] ;
+    [writingPath setString:@"~/Documents/test_Folder/bmiText.txt" ] ;
+    
+    BOOL fileExistFlag = [ [[NSFileManager alloc] init]
+                          fileExistsAtPath:[writingPath stringByExpandingTildeInPath] ] ;
+    NSMutableString *writeString = [[NSMutableString alloc] initWithString:@""] ;
+    if(fileExistFlag == YES){
+        NSString *existFileString = [ [NSString alloc]
+                                     initWithContentsOfFile:[writingPath stringByExpandingTildeInPath]
+                                     encoding:NSUTF8StringEncoding
+                                     error:nil ] ;
+        [writeString appendString:existFileString] ;
+    }else{
+        /* ファイルが見つからない場合は、フォルダを作る */
+        [ [[NSFileManager alloc] init]
+         createDirectoryAtPath:[[writingPath stringByExpandingTildeInPath] stringByDeletingLastPathComponent]
+         withIntermediateDirectories:YES
+         attributes:nil
+         error:nil ] ;
+    }
+    
+    [writeString appendFormat:@"%.2fcm, %.2fkg, %.2f\n", heightCentimeter, weight, bmiValue] ;
+    
+    @try
+    {
+        [writeString
+         writeToFile:[writingPath stringByExpandingTildeInPath]
+         atomically:YES
+         encoding:NSUTF8StringEncoding
+         error:nil] ;
+        NSLog(@"%@ に、ファイルを書き込みました", [[writingPath stringByExpandingTildeInPath] stringByDeletingLastPathComponent] ) ;
+    }
+    @catch (NSException *exception) {
+        NSLog(@"ファイルの書き込みは行えませんでした") ;
+        return -1 ;
+    }
+    return 1 ;
 }
 
 - (void)didReceiveMemoryWarning {
