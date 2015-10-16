@@ -94,6 +94,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="adviceTextLabel" destination="uQK-9O-L7m" id="Rjg-sZ-c6e"/>
+                        <outlet property="answerValueLabel" destination="AuT-DW-GNS" id="cce-cf-jPE"/>
+                        <outlet property="bmiTextLabel" destination="ABZ-eH-cjf" id="aeW-pf-ROb"/>
+                        <outlet property="heightTextField" destination="VcK-Yu-6SP" id="F9U-bd-Bp3"/>
+                        <outlet property="startComputeButton" destination="qsY-bU-XxI" id="mm5-6q-r07"/>
+                        <outlet property="weightTextField" destination="W6D-Hm-eiZ" id="mFR-u2-1M7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

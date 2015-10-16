@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-
-
+{
+    IBOutlet UITextField *heightTextField ;
+    IBOutlet UITextField *weightTextField ;
+    IBOutlet UIButton    *startComputeButton ;
+    IBOutlet UILabel *bmiTextLabel ;
+    IBOutlet UILabel *answerValueLabel ;
+    IBOutlet UILabel *adviceTextLabel ;
+}
 @end
-
