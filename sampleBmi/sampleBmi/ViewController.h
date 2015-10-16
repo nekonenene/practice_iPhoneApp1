@@ -14,7 +14,7 @@
     IBOutlet UITextField *weightTextField ;
     IBOutlet UIButton    *startComputeButton ;
     IBOutlet UILabel *bmiTextLabel ;
-    IBOutlet UILabel *answerValueLabel ;
-    IBOutlet UILabel *adviceTextLabel ;
+    IBOutlet UILabel *resultValueLabel ;
+    IBOutlet UILabel *resultTextLabel ;
 }
 @end
