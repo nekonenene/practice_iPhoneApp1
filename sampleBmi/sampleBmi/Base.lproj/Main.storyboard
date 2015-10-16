@@ -122,6 +122,10 @@
                                 <state key="normal" title="計算する">
                                     <color key="titleColor" red="0.075650348330903061" green="0.24447094083372259" blue="0.68282433712121215" alpha="0.67000000000000004" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="computeBMI" destination="BYZ-38-t0r" eventType="touchUpInside" id="zZx-x5-uGN"/>
+                                    <action selector="hideKeyboardWhenPushButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="De8-JJ-Mef"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アドバイスメッセージ" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQK-9O-L7m">
                                 <rect key="frame" x="27" y="485" width="322" height="140"/>

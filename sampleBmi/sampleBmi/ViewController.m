@@ -14,19 +14,72 @@
 
 @implementation ViewController
 
-// Return キーが押された時に、ソフトウェアキーボードをしまう
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    bmiTextLabel.hidden = YES ;
+    resultValueLabel.hidden = YES ;
+    resultTextLabel.hidden = YES ;
+    
+    /* テキストフィールドに入力するときのキーボードタイプを、テンキーに指定 */
+    heightTextField.keyboardType = UIKeyboardTypeNumberPad ;
+    weightTextField.keyboardType = UIKeyboardTypeNumberPad ;
+}
+
+/* Return キーが押された時に、ソフトウェアキーボードをしまう */
 - (BOOL)textFieldCatchReturn :(UITextField *)targetTextField
 {
     [targetTextField resignFirstResponder] ;
     return 1 ; // YES
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    bmiTextLabel.hidden = YES ;
-    resultValueLabel.hidden = YES ;
-    resultTextLabel.hidden = YES ;
+/* 計算する ボタンが押された時に、ソフトウェアキーボードをしまう */
+- (IBAction)hideKeyboardWhenPushButton:(id)sender
+{
+    // ファーストレスポンダになっているものをしらみつぶしに探して、ファーストレスポンダをやめさせることで
+    // ソフトウェアキーボードを非表示にする
+        if ([heightTextField isFirstResponder] ) {
+            [heightTextField resignFirstResponder] ;
+        }else{
+            [weightTextField resignFirstResponder] ;
+        }
+}
+
+/* 計算する ボタンが押された時におこなう動作。BMIを計算し、結果を表示する。 */
+- (IBAction)computeBMI
+{
+    float heightCentimeter ;
+    float heightMeter ;
+    float weight ;
+    float bmiValue ;
+    
+    heightCentimeter = heightTextField.text.floatValue ;
+    heightMeter = heightCentimeter / 100 ;
+    weight = weightTextField.text.floatValue ;
+    
+    bmiValue = weight / (heightMeter * heightMeter) ;
+    resultValueLabel.text = [[NSString alloc] initWithFormat:@"%.2f", bmiValue] ;
+    
+    if(bmiValue < 17.6){
+        resultTextLabel.text = @"やせすぎです。\nもっと食べましょう。" ;
+    }else if(bmiValue < 19.8){
+        resultTextLabel.text = @"やせ気味ですが、まあ、いい感じですね。" ;
+    }else if(bmiValue < 24.2){
+        resultTextLabel.text = @"健康的なBMIです。\nとはいえ、これで全ては測れません。\n適度な運動を心がけましょう。" ;
+    }else if(bmiValue < 26.4){
+        resultTextLabel.text = @"太り気味ですね。\n日本ではけっこうヤバイレベルですので、体を動かしましょう。" ;
+    }else if(bmiValue >= 26.4){
+        resultTextLabel.text = @"肥満体質です。やばいです。\n長生きするにはもっといろいろ考えたほうがいいです。\n\
+場合によってはお医者さんのお世話になったほうがよいでしょう。" ;
+    }else{
+        resultTextLabel.text = @"ERROR" ;
+    }
+    
+    bmiTextLabel.hidden = NO ;
+    resultValueLabel.hidden = NO ;
+    resultTextLabel.hidden = NO ;
+
 }
 
 - (void)didReceiveMemoryWarning {
