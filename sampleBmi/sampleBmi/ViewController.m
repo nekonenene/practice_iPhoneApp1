@@ -14,6 +14,13 @@
 
 @implementation ViewController
 
+// Return キーが押された時に、ソフトウェアキーボードをしまう
+- (BOOL)textFieldCatchReturn :(UITextField *)targetTextField
+{
+    [targetTextField resignFirstResponder] ;
+    return 1 ; // YES
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
