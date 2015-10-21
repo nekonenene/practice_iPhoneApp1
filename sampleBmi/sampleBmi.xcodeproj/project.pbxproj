@@ -207,7 +207,7 @@
 				TargetAttributes = {
 					B6E9B3191BD0BEE00055AFF5 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = 98F3VR63F7;
+						DevelopmentTeam = 72HK4SG45P;
 					};
 					B6E9B3321BD0BEE00055AFF5 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -416,6 +416,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = sampleBmi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -429,6 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = sampleBmi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
